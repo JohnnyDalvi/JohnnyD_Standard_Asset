@@ -5,6 +5,9 @@ This is the version 1.00.
 You can dowload the package here:
 https://www.dropbox.com/s/xsk19nx8fzihqig/JohnnyDalvi%20Standard%20Asset.unitypackage?dl=0
 
+Follow my work at my website:
+# http://firepitgames.net
+
 ## This Asset Consists off:
 * Singleton Master GameObject that is responsible for managing overall options such as Player Preferences, Custom Events, in-game message windows, pause/unpause, overall sound manager, musics and PlayerFeedback class;
 * Custom UIEditor (Window/UI Editor) that can handle mass UI Image/Text/Outline color change;
@@ -106,7 +109,5 @@ You can use it for anything that you want, just follow the licensing in the "Lic
 You can e-mail me at:
 ## johnnydalvi.games@gmail.com
 
-Follow my work at my website:
-## http://firepitgames.net
 
 ### Thanks!
