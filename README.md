@@ -2,6 +2,8 @@
 This asset is an unity base project with a premade menu and event pipeline to help produce games faster.
 
 This is the version 1.00.
+You can dowload the package here:
+https://www.dropbox.com/s/xsk19nx8fzihqig/JohnnyDalvi%20Standard%20Asset.unitypackage?dl=0
 
 ## This Asset Consists off:
 * Singleton Master GameObject that is responsible for managing overall options such as Player Preferences, Custom Events, in-game message windows, pause/unpause, overall sound manager, musics and PlayerFeedback class;
@@ -105,6 +107,6 @@ You can e-mail me at:
 ## johnnydalvi.games@gmail.com
 
 Follow my work at my website:
-## firepitgames.net
+## http://firepitgames.net
 
 ### Thanks!
