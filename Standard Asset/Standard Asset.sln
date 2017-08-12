@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standard Asset", "Standard Asset.csproj", "{09EAF372-68C1-A2B2-DE85-EFDB483188C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Standard Asset.Editor", "Standard Asset.Editor.csproj", "{8ECC48A0-CFA3-A48C-9390-BA4E380D6361}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09EAF372-68C1-A2B2-DE85-EFDB483188C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09EAF372-68C1-A2B2-DE85-EFDB483188C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09EAF372-68C1-A2B2-DE85-EFDB483188C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09EAF372-68C1-A2B2-DE85-EFDB483188C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ECC48A0-CFA3-A48C-9390-BA4E380D6361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ECC48A0-CFA3-A48C-9390-BA4E380D6361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ECC48A0-CFA3-A48C-9390-BA4E380D6361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ECC48A0-CFA3-A48C-9390-BA4E380D6361}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
