@@ -106,7 +106,7 @@ If you want this system to don't affect an specific object or text, you can just
 
 # Thanks and Licensing:
 
-You can use it for anything that you want, just follow the licensing in the "License.txt" within the root folder. It would also be good to have contribution to this asset, I think that it is pretty useful to speed production, mainly for game jams.
+You can use it for anything that you want, just follow the licensing in the "<a href="https://github.com/JohnnyDalvi/JohnnyD_Standard_Asset/blob/master/License.txt">License.txt</a>" within the root folder. It would also be good to have contribution to this asset, I think that it is pretty useful to speed production, mainly for game jams.
 
 You can e-mail me at:
 ## johnnydalvi.games@gmail.com
