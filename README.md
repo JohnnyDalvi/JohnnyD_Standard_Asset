@@ -8,6 +8,8 @@ https://www.dropbox.com/s/xsk19nx8fzihqig/JohnnyDalvi%20Standard%20Asset.unitypa
 Follow my work at my website:
 # http://firepitgames.net
 
+
+
 ## This Asset Consists off:
 * Singleton Master GameObject that is responsible for managing overall options such as Player Preferences, Custom Events, in-game message windows, pause/unpause, overall sound manager, musics and PlayerFeedback class;
 * Custom UIEditor (Window/UI Editor) that can handle mass UI Image/Text/Outline color change;
