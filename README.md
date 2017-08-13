@@ -15,6 +15,8 @@ Follow my work at my website:
 * Custom UIEditor (Window/UI Editor) that can handle mass UI Image/Text/Outline color change;
 * Premade Menu flow, with a loading scene, start menu and the Game scene with inbuilt options.
 
+![alt text](http://firepitgames.net/wp-content/uploads/2017/08/giphy-1.gif)
+
 This is the first version and I will be slowly updating it, everyone is free to send me pull-requests in order to help me improve it.
 
 # Documentation
