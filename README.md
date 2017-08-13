@@ -15,6 +15,8 @@ Follow my work at my website:
 * Custom UIEditor (Window/UI Editor) that can handle mass UI Image/Text/Outline color change;
 * Premade Menu flow, with a loading scene, start menu and the Game scene with inbuilt options.
 
+![alt text](http://firepitgames.net/wp-content/uploads/2017/08/giphy-1.gif)
+
 This is the first version and I will be slowly updating it, everyone is free to send me pull-requests in order to help me improve it.
 
 # Documentation
@@ -42,12 +44,6 @@ This script is how we change scenes in this asset, there are a variety of public
 There is also the "LoadLevelAsync(int scene, Slider slider)" method, that you can load the scene asynchronously and even call it using an slider as parameter so it can show a loading bar progress.
 
 There is an static instance access to this method, so you can call any public method by using LevelManager.instance.MethodName.
-
-### Master.MenuMethods.cs(script):
-This script handles the menu methods such as open the options panel, changing level, changing preferences, pausing the game etc.
-It also have an AudioSource that is used to play the Button Sound and Win/Lose sounds.
-
-Social Media and website: the MenuMethods.cs have a method that accepts an string as input, it will open any URL that you put in the string parameter.
 
 ### Master.AudioController.cs(script):
 This script holds the references to the Button Sound, Win Sound and Lose sound, whenver clip you put on those public clips will be played on the respective events.
@@ -84,6 +80,11 @@ Methods:
 
 * public static Image ImageFromWorldToCanvas(Sprite image, Vector2 rectSize, Vector3 worldPosition, float timerToDestroy, Vector2 CanvasMoveVelocity): Similar to the TextFromWorldToCanvas method, although it wil accept an image as input. It can also returns an image, so you can change it afterwards calling it.
 
+## MenuMethods.cs(script):
+This script is attached to the main Menu Canvas of each scene and comunicates with the Master GameObject in order to handle the menu methods. It does things such as open the options panel, changing level, changing preferences, pausing the game etc.
+It also have an AudioSource that is used to play the Button Sound and Win/Lose sounds.
+
+Social Media and website: the MenuMethods.cs have a method that accepts an string as input, it will open any URL that you put in the string parameter.
 
 ## Custom UI Editor(window):
 This is an Editor script, so it should be accessed during edit mode and not play mode, you can open the respective window in > Window/UI Editor. I shall be improving this window soon, I want to add font and image support.
@@ -101,7 +102,6 @@ The custom schemes works based on the tags, please note that the Custom Scheme h
 
 ### Non Effect (tag):
 If you want this system to don't affect an specific object or text, you can just assign the specific tag that you have chosen to put here to the object.
-
 
 
 # Thanks and Licensing:
