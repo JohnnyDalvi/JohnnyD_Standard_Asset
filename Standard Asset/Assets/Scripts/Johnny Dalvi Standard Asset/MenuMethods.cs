@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,9 @@ public class MenuMethods : MonoBehaviour
     }
     [HideInInspector]
     public AudioSource source;
+
+    public GameObject DebuGameObject;
+
     int Timer;
     void Adressingvalue()
     {
@@ -40,6 +44,8 @@ public class MenuMethods : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(repeatDebug());
+
         _instance = this;
         source = GetComponent<AudioSource>();
         Adressingvalue();
@@ -71,6 +77,23 @@ public class MenuMethods : MonoBehaviour
         {
             Adressingvalue();
         }
+    }
+
+    IEnumerator repeatDebug()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Debug();
+        StartCoroutine(repeatDebug());
+    }
+    public void Debug()
+    {
+        int randomSprite = UnityEngine.Random.Range(0, 100);
+        float posX = UnityEngine.Random.Range(2, -2);
+        float posY = UnityEngine.Random.Range(2, -2);
+
+
+        PlayerFeedback.TextFromWorldToCanvas(randomSprite.ToString(), DebuGameObject.transform.position, 1,
+            new Vector2(posX, posY));
     }
 
     public void BackToMenu()
