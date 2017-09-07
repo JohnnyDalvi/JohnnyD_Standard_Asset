@@ -11,8 +11,10 @@ Changes:
 * StartGame Event and isPlaying Master Bool;
 * Fixed some small bugs.
 --------------
-(OLD) This is the version 1.00.
+
+OLD-This is the version 1.00.
 You can dowload the package here: https://www.dropbox.com/s/xsk19nx8fzihqig/JohnnyDalvi%20Standard%20Asset.unitypackage?dl=0
+
 --------------
 Follow my work at my website:
 # http://firepitgames.net
