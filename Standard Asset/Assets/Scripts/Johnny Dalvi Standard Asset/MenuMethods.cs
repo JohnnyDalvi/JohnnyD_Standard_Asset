@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +6,7 @@ using UnityEngine.UI;
 public class MenuMethods : MonoBehaviour
 {
     GUIOverallOptions _guiOverallOptions;
-    public GameObject optionsWindow;
+    public GameObject optionsWindow, winWindow, loseWindow;
     public Slider volumeSlider;
     public Slider musicSlider;
 
@@ -27,9 +26,6 @@ public class MenuMethods : MonoBehaviour
     }
     [HideInInspector]
     public AudioSource source;
-
-    public GameObject DebuGameObject;
-
     int Timer;
     void Adressingvalue()
     {
@@ -42,18 +38,43 @@ public class MenuMethods : MonoBehaviour
         Timer += 1;
     }
 
+    private void OnEnable()
+    {
+        Master.OnWin += OpenWinPanel;
+        Master.OnLose += OpenLosePanel;
+    }
+
+
+    private void OnDisable()
+    {
+        Master.OnWin -= OpenWinPanel;
+        Master.OnLose -= OpenLosePanel;
+    }
+
+
     void Start()
     {
-        StartCoroutine(repeatDebug());
-
         _instance = this;
         source = GetComponent<AudioSource>();
         Adressingvalue();
+
+        Master.StartGame(); // DEBUG, YOU CAN CHANGE IT TO START UPON ANOTHER TRIGGER
+
+    }
+
+    public void WinGame() // DEBUG, THIS IS JUST TO LINK TO THE BUTTON TO SHOW HOW IT WORKS
+    {
+        Master.WinGame();
+    }
+
+    public void LoseGame() // DEBUG, THIS IS JUST TO LINK TO THE BUTTON TO SHOW HOW IT WORKS
+    {
+        Master.LoseGame();
     }
 
     public void StartGame()
     {
-        LevelManager.instance.LoadLevel("Game");
+        LevelManager.instance.LoadLevel("Game", true);
     }
 
     public void QuitApplication()
@@ -79,26 +100,9 @@ public class MenuMethods : MonoBehaviour
         }
     }
 
-    IEnumerator repeatDebug()
-    {
-        yield return new WaitForSeconds(0.1f);
-        Debug();
-        StartCoroutine(repeatDebug());
-    }
-    public void Debug()
-    {
-        int randomSprite = UnityEngine.Random.Range(0, 100);
-        float posX = UnityEngine.Random.Range(2, -2);
-        float posY = UnityEngine.Random.Range(2, -2);
-
-
-        PlayerFeedback.TextFromWorldToCanvas(randomSprite.ToString(), DebuGameObject.transform.position, 1,
-            new Vector2(posX, posY));
-    }
-
     public void BackToMenu()
     {
-        LevelManager.instance.LoadLevel("Start");
+        LevelManager.instance.LoadLevel("Start", true);
     }
 
     public void OpenOptions()
@@ -115,5 +119,21 @@ public class MenuMethods : MonoBehaviour
     public void OpenURL(string url)
     {
         Application.OpenURL(url);
+    }
+
+    public void OpenWinPanel()
+    {
+        if (Master.isPlaying)
+        {
+            winWindow.SetActive(true);
+        }
+    }
+
+    public void OpenLosePanel()
+    {
+        if (Master.isPlaying)
+        {
+            loseWindow.SetActive(true);
+        }
     }
 }

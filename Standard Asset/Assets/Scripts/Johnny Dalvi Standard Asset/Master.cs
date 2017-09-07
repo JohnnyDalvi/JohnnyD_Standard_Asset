@@ -13,6 +13,10 @@ public class Master : MonoBehaviour
 
     public static event Pause OnPause;
 
+    public delegate void Start();
+
+    public static event Start OnStart;
+
     public delegate void Win();
 
     public static event Win OnWin;
@@ -31,7 +35,7 @@ public class Master : MonoBehaviour
 
     #endregion
 
-    
+
     static bool printEvents
     {
         get { return instance._printEvents; }
@@ -53,6 +57,7 @@ public class Master : MonoBehaviour
             return false;
         }
     }
+    public static bool isPlaying;
 
 
 
@@ -77,6 +82,8 @@ public class Master : MonoBehaviour
     public static void PauseGame()
     {
         Time.timeScale = 0;
+        isPlaying = false;
+
 
         if (OnPause != null)
             OnPause();
@@ -86,10 +93,20 @@ public class Master : MonoBehaviour
 #endif
     }
 
+    public static void StartGame()
+    {
+        isPlaying = true;
+
+#if UNITY_EDITOR
+        if (printEvents)
+            print("OnStart() Event on " + time.ToString("0.0s"));
+#endif
+    }
+
     public static void UnPauseGame()
     {
         Time.timeScale = 1;
-        Time.fixedDeltaTime = 0.02f;
+        isPlaying = true;
 
         if (OnUnPause != null)
             OnUnPause();
@@ -119,6 +136,7 @@ public class Master : MonoBehaviour
         if (printEvents)
             print("OnWin() Event on " + time.ToString("0.0s"));
 #endif
+        isPlaying = false;
     }
 
     public static void LoseGame()
@@ -129,5 +147,7 @@ public class Master : MonoBehaviour
         if (printEvents)
             print("OnLose() Event on " + time.ToString("0.0s"));
 #endif
+        isPlaying = false;
+
     }
 }

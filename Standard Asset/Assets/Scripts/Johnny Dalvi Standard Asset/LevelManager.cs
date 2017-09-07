@@ -27,6 +27,38 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public Slider mySlider;
+    public GameObject loadingPanel;
+
+    private void OnEnable()
+    {
+        Master.OnSceneLoaded += DisableLoadingPanel;
+    }
+
+    void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            if (mySlider != null)
+                LoadNextLevelAsync(mySlider);
+
+            else
+                LoadNextLevelAsync();
+        }
+    }
+
+    void DisableLoadingPanel()
+    {
+        loadingPanel.SetActive(false);
+    }
+
+    Slider EnableLoadingPanel()
+    {
+        loadingPanel.SetActive(true);
+        return mySlider;
+    }
+
+
     void Awake()
     {
         if (_instance != null)
@@ -41,14 +73,25 @@ public class LevelManager : MonoBehaviour
     #endregion
 
 
-    public void LoadLevel(string name)
+    public void LoadLevel(string name, bool isAsync)
     {
-        if (Time.timeScale != 1)
+        if (!isAsync)
+            SceneManager.LoadScene(name);
+        if (isAsync)
         {
-            Time.timeScale = 1;
-            Time.fixedDeltaTime = 0.02f;
+            LoadLevelAsync(name);
         }
-        SceneManager.LoadScene(name);
+    }
+
+  
+    public void LoadLevel(string name, bool isAsync, Slider slider)
+    {
+        if (!isAsync)
+            SceneManager.LoadScene(name);
+        if (isAsync)
+        {
+            LoadLevelAsync(name);
+        }
     }
 
     public void QuitRequest()
@@ -73,11 +116,11 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevelAsync(Slider slider)
     {
-        StartCoroutine(LoadLevelAsync(SceneManager.GetActiveScene().buildIndex + 1, slider));
+        LoadLevelAsync(SceneManager.GetActiveScene().buildIndex + 1, slider);
     }
     public void LoadNextLevelAsync()
     {
-        StartCoroutine(LoadLevelAsync(SceneManager.GetActiveScene().buildIndex + 1));
+        LoadLevelAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     #region LoadInTime
@@ -102,16 +145,42 @@ public class LevelManager : MonoBehaviour
     IEnumerator loadlevelin(float seconds, string levelname)
     {
         yield return new WaitForSeconds(seconds);
-        LoadLevel(levelname);
+        LoadLevel(levelname, true);
     }
 
     #endregion
 
     #region AsyncLoad
 
-    IEnumerator LoadLevelAsync(int scene, Slider slider)
+    public void LoadLevelAsync(int scene, Slider slider)
     {
         AsyncOperation aSyncLoad = SceneManager.LoadSceneAsync(scene);
+        StartCoroutine(AsyncLoad(aSyncLoad, slider));
+    }
+
+    public void LoadLevelAsync(string scene, Slider slider)
+    {
+        AsyncOperation aSyncLoad = SceneManager.LoadSceneAsync(scene);
+        StartCoroutine(AsyncLoad(aSyncLoad, slider));
+    }
+
+    public void LoadLevelAsync(int scene)
+    {
+        Slider slider = EnableLoadingPanel();
+        AsyncOperation aSyncLoad = SceneManager.LoadSceneAsync(scene);
+        StartCoroutine(AsyncLoad(aSyncLoad, slider));
+    }
+
+    public void LoadLevelAsync(string scene)
+    {
+        Slider slider = EnableLoadingPanel();
+        AsyncOperation aSyncLoad = SceneManager.LoadSceneAsync(scene);
+        StartCoroutine(AsyncLoad(aSyncLoad, slider));
+
+    }
+
+    IEnumerator AsyncLoad(AsyncOperation aSyncLoad, Slider slider)
+    {
         //aSyncLoad.allowSceneActivation = false;
         while (aSyncLoad.progress <= 0.89f)
         {
@@ -129,23 +198,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    IEnumerator LoadLevelAsync(int scene)
-    {
-        AsyncOperation aSyncLoad = SceneManager.LoadSceneAsync(scene);
-        //aSyncLoad.allowSceneActivation = false;
-        while (aSyncLoad.progress <= 0.89f)
-        {
-            yield return new WaitForSeconds(0.01f);
-            yield return null;
-        }
-        while (aSyncLoad.progress <= 0.9f)
-        {
-            yield return new WaitForSeconds(0.01f);
-
-            aSyncLoad.allowSceneActivation = true;
-            yield return aSyncLoad;
-        }
-    }
 
     #endregion
 }
