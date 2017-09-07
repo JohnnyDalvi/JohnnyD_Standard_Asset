@@ -1,23 +1,19 @@
 # JohnnyD_Standard_Asset
 This asset is an unity base project with a premade menu and event pipeline to help produce games faster.
 
+
+--------------
 ###Added Version 1.01:
-You can dowload the package here:
-https://www.dropbox.com/s/qf2nsv1morx9rcg/JohnnyDalvi%20Standard%20Asset.1.01.unitypackage?dl=0
+You can dowload the package here: https://www.dropbox.com/s/qf2nsv1morx9rcg/JohnnyDalvi%20Standard%20Asset.1.01.unitypackage?dl=0
 
 Changes:
 * Win/Lose Panel;
 * StartGame Event and isPlaying Master Bool;
 * Fixed some small bugs.
-
 --------------
-
 (OLD) This is the version 1.00.
-You can dowload the package here:
-https://www.dropbox.com/s/xsk19nx8fzihqig/JohnnyDalvi%20Standard%20Asset.unitypackage?dl=0
-
---------------------
-
+You can dowload the package here: https://www.dropbox.com/s/xsk19nx8fzihqig/JohnnyDalvi%20Standard%20Asset.unitypackage?dl=0
+--------------
 Follow my work at my website:
 # http://firepitgames.net
 
